@@ -32,22 +32,39 @@ void clist::build() {
   }
   current->next = rear;
 }
-void clist::copy(node* copied) {
-  if(current->data != 2) {
-    if(current->next == NULL) {
-        current->data = copied->data;
-        current->next = NULL;
-         
+void clist::copy(node* original, node * source) {
+  if(source->next->data == 2 && source->next == original) {
+      node* newnode = new node();
+    newnode->data = source->data;
+    rear->next = newnode;
+    rear = rear->next;
+    rear->next = current;
+    return;
+  }
+  if(source->data != 2) {
+  if(source == original) {
+    node* newnode = new node();
+    newnode->data = source->data;
+    rear->next = newnode;
+    rear = rear->next;
+    rear->next = current;
+    return;
+  }
+  else {
+      
+      node* newnode = new node();
+      newnode->data = source->data;
+    if(rear == NULL) {
+      rear = newnode;
+      current = rear;
     }
     else {
-      current->data = copied->data;
+      rear->next = newnode;
+      rear = rear->next;
     }
-  }
-
-  copy(copied->next);
+    }
 }
-void clist::copy(clist entry) {
-  copy(rear->next, entry.returnRear());
+  copy(original, source->next);
 }
 node* clist::returnRear() {
   return rear;

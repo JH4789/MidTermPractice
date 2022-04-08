@@ -23,7 +23,7 @@ class clist
 
 	/* *****************YOUR TURN! ********************* */
 	//Write your function prototype here:
-  void copy(node * copied);
+  void copy(node * original, node* source);
   node* returnRear();
 	private:
 		node * rear;

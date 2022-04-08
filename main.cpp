@@ -1,4 +1,4 @@
-#include "clist.h"
+ #include "clist.h"
 #include <iostream>
 
 
@@ -9,9 +9,9 @@ int main()
     object.display();	//displays the list
     clist copied;    
     //PLEASE PUT YOUR CODE HERE to call the function assigned
-    copied.copy(object.returnRear());
+    copied.copy(object.returnRear(), object.returnRear()->next);
     copied.display();
-    object.display(); //resulting list after your function call!
+     //resulting list after your function call!
     
     return 0;
 }
